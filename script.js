@@ -3,6 +3,7 @@ const input = document.querySelector("#input")
 let displayValue = 0
 let firstValue = ''
 let operator = ''
+selectOperator = false
 
 
 const displayView = () => {
@@ -18,7 +19,7 @@ const dotDisplay = (value) => {
 }
 
 const updateDisplay = (value) => {
-    if (displayValue === 0) displayValue = value.toString()
+    if (displayValue === 0 || selectOperator) displayValue = value.toString()
     else displayValue += value.toString()
 }
 
@@ -27,13 +28,14 @@ const clearAll = () => {
     displayValue = 0
     firstValue = ''
     operator = '0'
+    selectOperator = false
 }
 
 
 const operate = (value) => {
     operator = value
     firstValue = displayValue
-
+    selectOperator = true
 }
 
 
